@@ -1,13 +1,14 @@
 import React from "react";
-import { Route, BrowserRouter } from "react-router-dom";
+import { BrowserRouter,  Route } from "react-router-dom";
 
 import Home from "../Pages/HomeScreen";
+import Favoritos from "../Pages/FavoriteScreen"
 
 const Routes = () => {
   return(
     <BrowserRouter>
-      <Route component = { Home }  path="/" exact />
-      
+      <Route exact path="/" component={Home} />
+      <Route path="/fav" component={Favoritos}   />
     </BrowserRouter>
   )
 }

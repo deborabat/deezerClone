@@ -1,34 +1,36 @@
-import React, { useState } from "react";
+import React from "react";
 import { Navigation } from "react-minimal-side-navigation";
-import { FaSistrix } from "react-icons/fa";
+import { useNavigate,useLocation } from 'react-router-dom';
+import { FaHome, FaRegHeart } from "react-icons/fa";
 
 import "react-minimal-side-navigation/lib/ReactMinimalSideNavigation.css";
 import { Container } from "./styles";
 
-export default function Menu() {
 
+export default function Menu() {
+  const navigate = useNavigate();
+  const location = useLocation();
   return (
     <Container>
       <Navigation
-        activeItemId={location.pathname}
-        onSelect={({ itemId }) => {}}
+       activeItemId={location.pathname}
+      
         items={[
           {
             title: "Home",
-            itemId: "/home",
+            itemId: "/",
             // Optional
-            elemBefore: () => <FaSistrix color ={'black'} size={'15px'}  />
+            elemBefore: () => <FaHome color ={'black'} size={'15px'}  />
           },
           {
-            title: "About",
-            itemId: "/about",
-            elemBefore: () => <FaSistrix color ={'black'} size={'15px'}  />,
+            title: "Favotitos",
+            itemId: "/fav",
+            elemBefore: () => <FaRegHeart color ={'black'} size={'15px'}  />,
           },
-          {
-            title: "Another Tab",
-            itemId: "/another",
-          }
         ]}
+        onSelect={({ itemId }) => {
+          navigate(itemId);
+         }}
       />
     </Container>
   );
