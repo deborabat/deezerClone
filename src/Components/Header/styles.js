@@ -6,6 +6,8 @@ export const Container = styled.section`
   display: flex;
   flex-direction: row;
   align-items: center;
+  border-bottom: 1px solid #63605E ;
+  position: static;
 `;
 
 export const Logo = styled.div`

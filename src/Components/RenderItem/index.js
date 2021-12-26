@@ -1,18 +1,21 @@
 import React, { useState } from 'react';
-import FlatList from 'flatlist-react';
 
-import { FaDeezer } from "react-icons/fa";
+import { FaPlayCircle, FaPauseCircle, FaRegHeart,FaHeart, FaHeadphonesAlt  } from "react-icons/fa";
 
-import Header from '../../Components/Header'
-import Menu from '../../Components/Menu'
-import { Wrapper,} from './styles.js';
+import { Container, IconsContainer, TextItem} from './styles.js';
 
 export default function RenderItem(person, idx) {
 
-
+console.log(person.item)
   return (
-      <li key={idx}>
-        <b>{person.firstName} {person.lastName}</b> (<span>{person.info.age}</span>)
-      </li>
+    <Container key={idx}>
+        <TextItem> {person.item.firstName} {person.item.lastName} </TextItem>
+         <IconsContainer> 
+          <FaHeadphonesAlt color ={'black'} size={'15px'}  />
+          <FaHeart color ={'black'} size={'15px'}  />
+          <FaPlayCircle color ={'black'} size={'15px'}  />
+        </IconsContainer> 
+     
+    </Container>
   );
 }
