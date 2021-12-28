@@ -11,11 +11,7 @@ export const Body = styled.section`
   flex-direction: row;
 `;
 
-export const List = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;s
-`;
+
 
   
 

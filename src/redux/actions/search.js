@@ -2,7 +2,7 @@ import {
   SEARCH_LOADING,
   SEARCH_SUCCESS,
   SEARCH_ERROR,
-} from "./constantes/types";
+} from "../types";
 
 const initialState = {
   loading: true,
