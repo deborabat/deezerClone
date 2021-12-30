@@ -10,8 +10,3 @@ export const Body = styled.section`
   display: flex;
   flex-direction: row;
 `;
-
-
-
-  
-

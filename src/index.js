@@ -1,17 +1,23 @@
+/* eslint-disable react/jsx-filename-extension */
 import React from 'react';
+
 import ReactDOM from 'react-dom';
-import reportWebVitals from './reportWebVitals';
 
-import { Provider } from 'react-redux'
-import store from '../src/store'
+import { Provider } from 'react-redux';
+import App from './App';
 
-import App from './App'
+// REDUX
 
-const rootElement = document.getElementById('root')
+import store from './Redux/store';
+
 ReactDOM.render(
+
   <Provider store={store}>
-    <App />
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
   </Provider>,
-  rootElement
-)
-reportWebVitals();
+
+  document.getElementById('root'),
+
+);

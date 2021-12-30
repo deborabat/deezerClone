@@ -2,7 +2,7 @@ import {
   SEARCH_LOADING,
   SEARCH_SUCCESS,
   SEARCH_ERROR,
-} from "../types";
+} from './types';
 
 const initialState = {
   loading: true,
@@ -10,10 +10,8 @@ const initialState = {
   error: null,
 };
 
-export default function search(state = initialState, action) {
-
+export default function reducer(action, state = initialState) {
   switch (action.type) {
-
     case SEARCH_LOADING:
       return {
         ...state,
@@ -35,8 +33,6 @@ export default function search(state = initialState, action) {
       };
     default:
 
-    return state;
-
+      return state;
   }
-
 }

@@ -25,5 +25,3 @@ export const IconsContainer = styled.section`
   display: flex;
   justify-content: space-between;
 `;
-
-
