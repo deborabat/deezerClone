@@ -1,20 +1,25 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
-
-import List from '../../Components/Lists';
-import Header from '../../Components/Header';
+import {
+  FaPlayCircle, FaPauseCircle, FaRegHeart, FaHeart, FaExternalLinkAlt,
+} from 'react-icons/fa';
 import Menu from '../../Components/Menu';
+import Lists from '../../Components/Lists';
+import Footer from '../../Components/Footer';
 // eslint-disable-next-line import/extensions
-import { Wrapper, Body } from './styles.js';
+import {
+  Wrapper,
+  Body,
+} from './styles.js';
 
-export default function HomeScreen() {
+export default function HomeScreen({ spotify }) {
   return (
     <Wrapper>
-      <Header />
       <Body>
         <Menu />
-        <List />
+        <Lists spotify={spotify} />
       </Body>
+      <Footer />
     </Wrapper>
   );
 }

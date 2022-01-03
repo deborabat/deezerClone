@@ -1,13 +1,16 @@
-/* eslint-disable react/function-component-definition */
 import React from 'react';
+import { loginUrl } from '../../services/api/auth';
 
-// eslint-disable-next-line import/extensions
-import { Wrapper, Body } from './styles.js';
-
-export default function HomeScreen() {
+const Login = function () {
   return (
-    <Wrapper>
-      <Body />
-    </Wrapper>
+    <div className="login">
+      <img
+        src="https://music-b26f.kxcdn.com/wp-content/uploads/2017/06/635963274692858859903160895_spotify-logo-horizontal-black.jpg"
+        alt="Spotify logo"
+      />
+      <a href={loginUrl}>LOGIN WITH SPOTIFY</a>
+    </div>
   );
-}
+};
+
+export default Login;

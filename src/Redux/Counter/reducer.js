@@ -1,38 +1,38 @@
-import {
-  SEARCH_LOADING,
-  SEARCH_SUCCESS,
-  SEARCH_ERROR,
-} from './types';
-
-const initialState = {
-  loading: true,
-  data: {},
-  error: null,
+export const initialState = {
+  user: null,
+  token: null,
+  playlists: [],
+  playing: false,
+  item: null,
 };
 
-export default function reducer(action, state = initialState) {
+const reducer = (state, action) => {
+  console.log(action);
+
   switch (action.type) {
-    case SEARCH_LOADING:
+    case 'SET_USER':
       return {
         ...state,
-        loading: true,
+        user: action.user,
       };
-
-    case SEARCH_SUCCESS:
+    case 'SET_TOKEN':
       return {
         ...state,
-        loading: false,
-        data: action.payload,
+        token: action.token,
       };
-
-    case SEARCH_ERROR:
+    case 'SET_PLAYLISTS':
       return {
         ...state,
-        loading: false,
-        error: action.payload,
+        playlists: action.playlists,
+      };
+    case 'SET_DISCOVER_WEEKLY':
+      return {
+        ...state,
+        discover_weekly: action.discover_weekly,
       };
     default:
-
       return state;
   }
-}
+};
+
+export default reducer;

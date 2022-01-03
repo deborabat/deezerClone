@@ -10,12 +10,19 @@ export const Container = styled.section`
   position: static;
 `;
 
-export const Logo = styled.div`
+export const ContainerRight = styled.div`
   margin-left:5vh ;
   display: flex;
   flex-direction: row;
 `;
-export const TextLogo = styled.text`
+export const ContainerLeft = styled.div`
+  margin-right:10vh ;
+  margin-left:1vh ;
+  font-size: calc(14px + 2vmin);
+  color: black;
+`;
+
+export const Name = styled.text`
   margin-right:10vh ;
   margin-left:1vh ;
   font-size: calc(14px + 2vmin);

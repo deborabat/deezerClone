@@ -9,6 +9,20 @@ export const Container = styled.section`
   position: static;
 `;
 
+export const Space = styled.section`
+  border: 1px solid #282828;
+  width: 90%;
+  margin: 10px auto;
+`;
 
-  
-
+export const Logo = styled.img`
+  height: 100px;
+  width: auto;
+  padding: 10px;
+  margin: auto;
+`;
+export const Title = styled.section`
+  margin-left: 5px;
+  padding: 5px;
+  font-size: 12px;
+`;
