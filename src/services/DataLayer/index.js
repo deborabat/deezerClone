@@ -1,12 +1,14 @@
 /* eslint-disable no-var */
 import React, { createContext, useContext, useReducer } from 'react';
 
-export default function useDataLayerValue({ initialState, reducer, children }) {
-  const DataLayerContext = createContext();
-  useContext(DataLayerContext);
+export const DataLayerContext = createContext();
+
+export const DataLayer = function (initialState, reducer, children) {
   return (
     <DataLayerContext.Provider value={useReducer(reducer, initialState)}>
       {children}
     </DataLayerContext.Provider>
   );
-}
+};
+
+export const useDataLayerValue = () => useContext(DataLayerContext);

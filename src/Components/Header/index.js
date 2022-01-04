@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import { Avatar } from '@material-ui/core';
 
@@ -6,11 +6,11 @@ import Inputsearch from '../InputSearch';
 import {
   Container, Name, ContainerLeft, ContainerRight,
 } from './styles.js';
-import useDataLayerValue from '../../services/DataLayer';
+import { useDataLayerValue } from '../../services/DataLayer';
 
 // eslint-disable-next-line react/function-component-definition
 export default function Header() {
-  const [{ user }, dispatch] = useDataLayerValue();
+  const [{ user }] = useDataLayerValue();
   return (
     <Container>
       <ContainerLeft>

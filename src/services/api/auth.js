@@ -15,7 +15,6 @@ export const getTokenFromUrl = () => window.location.hash
   .split('&')
   .reduce((initial, item) => {
     const parts = item.split('=');
-    // eslint-disable-next-line no-param-reassign
     initial[parts[0]] = decodeURIComponent(parts[1]);
     return initial;
   }, {});

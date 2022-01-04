@@ -1,16 +1,15 @@
 import React from 'react';
-import { useNavigate, useLocation } from 'react-router-dom';
 import { FaHome, FaRegHeart } from 'react-icons/fa';
-import SidebarOption from './sideBarOptions';
+import SidebarOption from './SideBarOptions';
 
-import useDataLayerValue from '../../services/DataLayer';
+import { useDataLayerValue } from '../../services/DataLayer';
 import {
   Container, Space, Logo, Title,
 } from './styles';
 
 // eslint-disable-next-line react/function-component-definition
-export default function Menu() {
-  const [{ playlists }, dispatch] = useDataLayerValue();
+export default function Menu({ spotify }) {
+  const [{ playlists }] = useDataLayerValue();
   return (
     <Container>
       <Logo
@@ -25,7 +24,7 @@ export default function Menu() {
       <Title>PLAYLISTS</Title>
       <Space />
       {playlists?.items?.map((playlist) => (
-        <SidebarOption title={playlist.name} />
+        <SidebarOption spotify={spotify} title={playlist.name} id={playlist.id} key={playlist.id} />
       ))}
 
     </Container>
