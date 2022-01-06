@@ -1,38 +1,61 @@
-import {
-  SEARCH_LOADING,
-  SEARCH_SUCCESS,
-  SEARCH_ERROR,
-} from './types';
-
-const initialState = {
-  loading: true,
-  data: {},
-  error: null,
+export const initialState = {
+  user: null,
+  playlists: [],
+  playing: false,
+  item: null,
+  current_playlist: null,
+  tracks: null,
+  track: null,
+  token: null,
 };
 
-export default function reducer(action, state = initialState) {
+const reducer = (state, action) => {
+  // Action -> type, [payload]
   switch (action.type) {
-    case SEARCH_LOADING:
+    case 'SET_USER':
       return {
         ...state,
-        loading: true,
+        user: action.user,
       };
-
-    case SEARCH_SUCCESS:
+    case 'SET_TOKEN': {
       return {
         ...state,
-        loading: false,
-        data: action.payload,
+        token: action.token,
       };
-
-    case SEARCH_ERROR:
+    }
+    case 'SET_PLAYLISTS': {
       return {
         ...state,
-        loading: false,
-        error: action.payload,
+        playlists: action.playlists,
       };
+    }
+    case 'SET_CURRENT_PLAYLIST': {
+      let currentPlaylist = null;
+      state.playlists.items.forEach((playlist) => {
+        if (playlist.id === action.id) {
+          currentPlaylist = playlist;
+        }
+      });
+      return {
+        ...state,
+        current_playlist: currentPlaylist,
+      };
+    }
+    case 'SET_TRACKS': {
+      return {
+        ...state,
+        tracks: action.tracks,
+      };
+    }
+    case 'SET_TRACK': {
+      return {
+        ...state,
+        track: action.track,
+      };
+    }
     default:
-
       return state;
   }
-}
+};
+
+export default reducer;

@@ -1,86 +1,73 @@
-import React, { useState } from 'react';
-import FlatList from 'flatlist-react';
-import { debounce } from 'lodash';
-import RenderItem from '../../Components/RenderItem';
+/* eslint-disable react/function-component-definition */
+import React from 'react';
+import {
+  FaPlayCircle,
+} from 'react-icons/fa';
+// import { useDataLayerValue } from '../../services/DataLayer';
+// import { useSoundLayerValue } from '../../services/soundLayer';
 
-import api from '../../services/api';
+import Header from '../Header';
+import SongRow from '../SongRow';
+// eslint-disable-next-line import/extensions
+import {
+  Wrapper,
+  Info,
+  Image,
+  InfoText,
+  Songs,
+  Icons,
+  WeekLy,
+  Description,
+} from './styles';
 
-import { Container, TiTle} from './styles.js';
+// eslint-disable-next-line react/prop-types
+export default function Lists() {
+  // const [{ currentPlaylist, tracks, track }] = useDataLayerValue();
+  // const [{ playing, volume }, soundDispatch] = useSoundLayerValue();
 
+  // const startPlaying = () => {
+  //   soundDispatch({
+  //     type: 'SET_PLAYING',
+  //     playing: true,
+  //   });
+  //   soundDispatch({
+  //     type: 'SET_VOLUME',
+  //     volume: volume / 100,
+  //   });
+  // };
 
-export default function List({}) {
-  const [artist, setArtists] = useState([]);
-  const [albums, setAlbums] = useState([]);
-  const [playlists, setPlaylists] = useState([]);
-  const [newReleases, setNewReleases] = useState([]);
-
-  const [load, setLoad] = useState(true);
-
-
-  async function loadReleases() {
-    const response = await api.get(
-      '/browse/new-releases?country=BR&limit=5'
-    );
-
-    setNewReleases(response.data.albums.items);
-
-    setLoad(false);
-}
-
-  
-
-  useEffect(() => {
-    loadReleases();
-  }, []);
-  
+  // const stopPlaying = () => {
+  //   soundDispatch({
+  //     type: 'SET_PLAYING',
+  //     playing: false,
+  //   });
+  // };
 
   return (
-    <Container >
-      {load && <TiTle>Carregando...</TiTle>}
-      {artist.length !== 0 && (
-        <>
-          <TiTle>Artistas</TiTle>
-          <FlatList
-            list={artist}
-            renderItem={<RenderItem aitemType="artists"
-            itemData={artist}/>}
-            renderWhenEmpty={() => <div>List is empty!</div>}
+    <Wrapper>
+      <Header />
+      <Info>
+        <Image src="https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png" alt="" />
+        <InfoText>
+          <strong>PLAYLIST</strong>
+          <WeekLy>currentPlaylist?.name</WeekLy>
+          <Description>currentPlaylist?.description</Description>
+        </InfoText>
+      </Info>
+      <Songs>
+        <Icons>
+          <FaPlayCircle
+            className="body__shuffle"
           />
-        </>
-      )}
-      {albums.length !== 0 && (
-        <>
-          <TiTle>Albums</TiTle>
-          <FlatList
-            list={albums}
-            renderItem={<RenderItem itemType="album"
-            itemData={albums}/>}
-            renderWhenEmpty={() => <div>List is empty!</div>}
+          <FaPlayCircle
+            fontSize="large"
+            className="body__shuffle"
           />
-        </>
-      )}
-      {playlists.length !== 0 && (
-        <>
-          <TiTle>Playlists</TiTle>
-          <FlatList
-            list={playlists}
-            renderItem={<RenderItem itemType="playlist"
-            itemData={playlists}/>}
-            renderWhenEmpty={() => <div>List is empty!</div>}
-          />
-        </>
-      )}
-      {newReleases.length !== 0 && (
-        <>
-          <TiTle>Playlists</TiTle>
-          <FlatList
-            list={newReleases}
-            renderItem={<RenderItem itemType="newReleases"
-            itemData={newReleases}/>}
-            renderWhenEmpty={() => <div>List is empty!</div>}
-          />
-        </>
-      )}
-    </Container>
+          <FaPlayCircle fontSize="large" />
+          <FaPlayCircle />
+        </Icons>
+        <SongRow />
+      </Songs>
+    </Wrapper>
   );
 }

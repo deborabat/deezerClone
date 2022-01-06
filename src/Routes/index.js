@@ -1,17 +1,17 @@
-import React from "react";
-import { BrowserRouter,  Route, Routes } from "react-router-dom";
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 
-import Home from "../Pages/HomeScreen";
-import Favoritos from "../Pages/FavoriteScreen"
+import Login from '../Pages/Login';
+import Home from '../Pages/HomeScreen';
+import Favoritos from '../Pages/FavoriteScreen';
 
+// eslint-disable-next-line react/function-component-definition
 export default function RoutesScreen() {
-  return(
-    <BrowserRouter>
+  return (
     <Routes>
-      <Route exact path="/" component={Home} />
-      <Route path="/fav" component={Favoritos}   />
-      </Routes>
-    </BrowserRouter>
-  )
+      <Route exact path="/" element={<Login />} />
+      <Route path="/Home" element={<Home />} />
+      <Route path="/fav" element={<Favoritos />} />
+    </Routes>
+  );
 }
-
