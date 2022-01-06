@@ -1,55 +1,55 @@
 import React from 'react';
 import {
-  Container, Album, Info, Name, Text,
+  Container, Info, Name, Text,
 } from './styles';
-import { useDataLayerValue } from '../../services/DataLayer';
+// import { useDataLayerValue } from '../../services/DataLayer';
 // eslint-disable-next-line import/named
-import { useSoundLayerValue } from '../../services/soundLayer';
+// import { useSoundLayerValue } from '../../services/soundLayer';
 
 // eslint-disable-next-line react/function-component-definition
-export default function SongRow({ track }) {
-  const [{}, dispatch] = useDataLayerValue();
-  const [{ playing, repeat }, soundDispatch] = useSoundLayerValue();
+export default function SongRow() {
+  // const [{}, dispatch] = useDataLayerValue();
+  // const [{ playing, repeat }, soundDispatch] = useSoundLayerValue();
 
-  const changeTrack = (e, track) => {
-    dispatch({
-      type: 'SET_TRACK',
-      track,
-    });
+  // const changeTrack = (e, track) => {
+  //   dispatch({
+  //     type: 'SET_TRACK',
+  //     track,
+  //   });
 
-    const wasPlaying = playing;
-    soundDispatch({
-      type: 'SET_PLAYING',
-      playing: false,
-    });
+  //   const wasPlaying = playing;
+  //   soundDispatch({
+  //     type: 'SET_PLAYING',
+  //     playing: false,
+  //   });
 
-    const audio = new Audio(track.preview_url);
-    audio.loop = repeat;
-    soundDispatch({
-      type: 'SET_AUDIO',
-      audio,
-    });
+  //   const audio = new Audio(track.preview_url);
+  //   audio.loop = repeat;
+  //   soundDispatch({
+  //     type: 'SET_AUDIO',
+  //     audio,
+  //   });
 
-    if (wasPlaying) {
-      soundDispatch({
-        type: 'SET_PLAYING',
-        playing: true,
-      });
-    }
+  //   if (wasPlaying) {
+  //     soundDispatch({
+  //       type: 'SET_PLAYING',
+  //       playing: true,
+  //     });
+  //   }
 
-    document.title = `${track.name} · ${track.artists.map((artist) => artist.name).join(', ')}`;
-  };
+  //   document.title = `${track.name} · ${track.artists.map((artist) => artist.name).join(', ')}`;
+  // };
   return (
-    <Container onClick={(e) => changeTrack(e, track)}>
-      <Album src={track.album.images[0].url} alt="" />
+    <Container>
+      {/* <Album src={track.album.images[0].url} alt="" /> */}
       <Info>
-        <Name>{track.name}</Name>
+        <Name>track.name</Name>
         <Text>
-          {track.artists.map((artist) => artist.name).join(', ')}
+          artist.name
           {' '}
           -
           {' '}
-          {track.album.name}
+          track.album.name
         </Text>
       </Info>
     </Container>

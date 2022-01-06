@@ -1,21 +1,20 @@
 import styled from 'styled-components';
 
 export const Container = styled.section`
-  padding: 2em;
+  padding: 1em;
   background: white;
-  width: 30%;
+  width: 10%;
   flex: 1;
-  border-right: 1px solid #63605E ;
   position: static;
+  background-color: #282828;
 `;
 
 export const Space = styled.section`
-  border: 1px solid #282828;
+  border: 0.5px solid white;
   width: 90%;
-  margin: 10px auto;
 `;
 
-export const Logo = styled.img`
+export const Logo = styled.section`
   height: 100px;
   width: auto;
   padding: 10px;

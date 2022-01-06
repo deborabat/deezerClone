@@ -1,42 +1,27 @@
-import React, { useState } from 'react';
-import FlatList from 'flatlist-react';
+/* eslint-disable react/function-component-definition */
+import React from 'react';
+import Menu from '../../Components/Menu';
+import Lists from '../../Components/Lists';
+import Footer from '../../Components/Footer';
+import {
+  Wrapper,
+  Body,
+  ContainerMenu,
+  ContainerList,
+} from './styles';
 
-import { FaDeezer } from "react-icons/fa";
-import RenderItem from '../../Components/RenderItem';
-import Header from '../../Components/Header'
-import Menu from '../../Components/Menu'
-import { Wrapper, Body, List} from './styles.js';
-
-
-export default function FavoriteScreen() {
-
- const person = [
-    {idx: 1, firstName: 'Elson', lastName: 'Correia', info: {age: 24}},
-    {idx: 2,firstName: 'John', lastName: 'Doe', info: {age: 18}},
-    {idx: 3,firstName: 'Jane', lastName: 'Doe', info: {age: 34}},
-    {idx: 4,firstName: 'Maria', lastName: 'Carvalho', info: {age: 22}},
-    {idx: 5,firstName: 'Kelly', lastName: 'Correia', info:{age: 23}},
-    {idx: 6,firstName: 'Don', lastName: 'Quichote', info: {age: 39}},
-    {idx: 7,firstName: 'Marcus', lastName: 'Correia', info: {age: 0}},
-    {idx: 8,firstName: 'Bruno', lastName: 'Gonzales', info: {age: 25}},
-    {idx: 9,firstName: 'Alonzo', lastName: 'Correia', info: {age: 44}}
-  ]
-
-
-
+export default function HomeScreen() {
   return (
     <Wrapper>
-      <Header/>
       <Body>
-        <Menu/>
-        <List>
-          <FlatList
-            list={person}
-            renderItem={<RenderItem person={person} idx={person.idx}/>}
-            renderWhenEmpty={() => <div>List is empty!</div>}
-          />
-        </List>
+        <ContainerMenu>
+          <Menu />
+        </ContainerMenu>
+        <ContainerList>
+          <Lists />
+        </ContainerList>
       </Body>
+      <Footer />
     </Wrapper>
   );
 }

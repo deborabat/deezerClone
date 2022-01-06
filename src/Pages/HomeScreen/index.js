@@ -1,22 +1,25 @@
 /* eslint-disable react/function-component-definition */
 import React from 'react';
 import Menu from '../../Components/Menu';
-// eslint-disable-next-line import/no-named-as-default
 import Lists from '../../Components/Lists';
 import Footer from '../../Components/Footer';
-// eslint-disable-next-line import/extensions
 import {
   Wrapper,
   Body,
-// eslint-disable-next-line import/extensions
-} from './styles.js';
+  ContainerMenu,
+  ContainerList,
+} from './styles';
 
-export default function HomeScreen(spotify) {
+export default function HomeScreen() {
   return (
     <Wrapper>
       <Body>
-        <Menu spotify={spotify} />
-        <Lists spotify={spotify} />
+        <ContainerMenu>
+          <Menu />
+        </ContainerMenu>
+        <ContainerList>
+          <Lists />
+        </ContainerList>
       </Body>
       <Footer />
     </Wrapper>

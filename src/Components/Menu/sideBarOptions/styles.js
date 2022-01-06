@@ -2,13 +2,10 @@ import styled from 'styled-components';
 
 export const Container = styled.section`
   display: flex;
-  align-items: center;
-  color: gray;
-  height: 40px;
-  cursor: pointer;
-  transition: 200ms color ease-in;
-  :hover {
+  align-items: left;
   color: white;
+  height: 40px;
+  background-color: #282828;
 `;
 
 export const Icon = styled.section`

@@ -8,12 +8,12 @@ export const Container = styled.section`
   height: 65px;
   width: 100%;
   background-color: #282828;
-  padding: 20px;
+  padding: 10px;
 }
 `;
 
 export const ContainerLeft = styled.section`
-  flex: 0.3;
+  flex: 1;
   display: flex;
   align-items: center;
   color: white;
@@ -21,7 +21,7 @@ export const ContainerLeft = styled.section`
 `;
 
 export const ContainerCenter = styled.section`
-  flex: 0.4;
+  flex: 1;
   padding: 0 100px;
   color: white;
   display: flex;

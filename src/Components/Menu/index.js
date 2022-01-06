@@ -1,31 +1,38 @@
 import React from 'react';
-import { FaHome, FaRegHeart } from 'react-icons/fa';
+import {
+  FaSpotify, FaSistrix,
+} from 'react-icons/fa';
+import { BiLibrary, BiHome } from 'react-icons/bi';
+import { Link } from 'react-router-dom';
 import SidebarOption from './SideBarOptions';
 
-import { useDataLayerValue } from '../../services/DataLayer';
+// import { useDataLayerValue } from '../../services/DataLayer';
 import {
   Container, Space, Logo, Title,
 } from './styles';
 
 // eslint-disable-next-line react/function-component-definition
-export default function Menu({ spotify }) {
-  const [{ playlists }] = useDataLayerValue();
+export default function Menu() {
+  // const [{ playlists }] = useDataLayerValue();
   return (
     <Container>
-      <Logo
-        src="https://music-b26f.kxcdn.com/wp-content/uploads/2017/06/635963274692858859903160895_spotify-logo-horizontal-black.jpg"
-        alt="Spotify logo"
-      />
+      <Logo>
+        <FaSpotify color="white" size="28px" />
+      </Logo>
 
-      <SidebarOption title="Home" Icon={<FaHome color="black" size="15px" />} />
-      <SidebarOption title="Search" Icon={<FaRegHeart color="black" size="15px" />} />
-      <SidebarOption title="Your Library" Icon={<FaRegHeart color="black" size="15px" />} />
+      <SidebarOption title="Home" icon={<BiHome color="white" />}>
+        <Link to="/Home" />
+      </SidebarOption>
+      <SidebarOption title="Search" icon={<FaSistrix color="white" />} />
+      <SidebarOption title="Your Library" icon={<BiLibrary color="white" />}>
+        <Link to="/fav" />
+      </SidebarOption>
       <br />
       <Title>PLAYLISTS</Title>
       <Space />
-      {playlists?.items?.map((playlist) => (
+      {/* {playlists?.items?.map((playlist) => (
         <SidebarOption spotify={spotify} title={playlist.name} id={playlist.id} key={playlist.id} />
-      ))}
+      ))} */}
 
     </Container>
   );
