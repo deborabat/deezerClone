@@ -3,7 +3,7 @@ import React, { createContext, useContext, useReducer } from 'react';
 
 export const DataLayerContext = createContext();
 
-export const DataLayer = function (initialState, reducer, children) {
+export const DataLayer = function ({ initialState, reducer, children }) {
   return (
     <DataLayerContext.Provider value={useReducer(reducer, initialState)}>
       {children}
