@@ -1,24 +1,20 @@
-export const authEndpoint = 'https://accounts.spotify.com/authorize';
-const redirectUri = 'http://localhost:3000/';
-const clientId = '96aa74e34af84f399d9ebd04c7823845';
+const axios = require('axios');
 
-const scopes = [
-  'user-read-currently-playing',
-  'user-read-recently-played',
-  'user-read-playback-state',
-  'user-top-read',
-  'user-modify-playback-state',
-];
+// where are you running your app (local react by default is http://localhost:3000/
+const clientId = '96aa74e34af84f399d9ebd04c7823845'; // clintId you can get at https://developer.spotify.com/dashboard
+const redirectUrl = `${window.location.origin}/`; // Your redirect uri
 
-export const getTokenFromUrl = () => window.location.hash
-  .substring(1)
-  .split('&')
-  .reduce((initial, item) => {
-    const parts = item.split('=');
-    initial[parts[0]] = decodeURIComponent(parts[1]);
-    return initial;
-  }, {});
+// eslint-disable-next-line import/prefer-default-export
+export function authUser() {
+  const stateKey = 'spotify_auth_state';
 
-export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
-  '%20',
-)}&response_type=token&show_dialog=true`;
+  const scope = 'user-read-private user-read-email';
+
+  let url = 'https://accounts.spotify.com/authorize';
+  url += '?response_type=token';
+  url += `&client_id=${encodeURIComponent(clientId)}`;
+  url += `&scope=${encodeURIComponent(scope)}`;
+  url += `&redirect_uri=${encodeURIComponent(redirectUrl)}`;
+  url += `&state=${encodeURIComponent(stateKey)}`;
+  window.location = url;
+}

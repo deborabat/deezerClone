@@ -4,7 +4,7 @@ import {
 } from 'react-icons/fa';
 import { BiLibrary, BiHome } from 'react-icons/bi';
 import { Link } from 'react-router-dom';
-import SidebarOption from './SideBarOptions';
+import SidebarOption from './sideBarOptions';
 
 // import { useDataLayerValue } from '../../services/DataLayer';
 import {

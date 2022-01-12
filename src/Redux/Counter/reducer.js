@@ -6,7 +6,7 @@ export const initialState = {
   current_playlist: null,
   tracks: null,
   track: null,
-  token: null,
+  token: access_token,
 };
 
 const reducer = (state, action) => {
