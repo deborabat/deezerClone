@@ -3,6 +3,8 @@ import React from 'react';
 import {
   FaPlayCircle,
 } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import PlaceholderLoading from 'react-placeholder-loading';
 // import { useDataLayerValue } from '../../services/DataLayer';
 // import { useSoundLayerValue } from '../../services/soundLayer';
 
@@ -21,7 +23,7 @@ import {
 } from './styles';
 
 // eslint-disable-next-line react/prop-types
-export default function Lists() {
+export default function Lists({ loading, user }) {
   // const [{ currentPlaylist, tracks, track }] = useDataLayerValue();
   // const [{ playing, volume }, soundDispatch] = useSoundLayerValue();
 
@@ -46,28 +48,47 @@ export default function Lists() {
   return (
     <Wrapper>
       <Header />
-      <Info>
-        <Image src="https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png" alt="" />
-        <InfoText>
-          <strong>PLAYLIST</strong>
-          <WeekLy>currentPlaylist?.name</WeekLy>
-          <Description>currentPlaylist?.description</Description>
-        </InfoText>
-      </Info>
-      <Songs>
-        <Icons>
-          <FaPlayCircle
-            className="body__shuffle"
-          />
-          <FaPlayCircle
-            fontSize="large"
-            className="body__shuffle"
-          />
-          <FaPlayCircle fontSize="large" />
-          <FaPlayCircle />
-        </Icons>
-        <SongRow />
-      </Songs>
+      {loading
+        ? (
+          <Info>
+            <PlaceholderLoading shape="rect" width="50%" height="80%" />
+            <InfoText>
+              <strong>PLAYLIST</strong>
+              <PlaceholderLoading shape="rect" width="50%" height="10%" />
+
+            </InfoText>
+            <Songs>
+              <PlaceholderLoading shape="rect" width="50%" height="10%" />
+              <SongRow />
+            </Songs>
+          </Info>
+        ) : (
+          <>
+            <Info>
+              <Image src="https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png" alt="" />
+              <InfoText>
+                <strong>PLAYLIST</strong>
+                <WeekLy>currentPlaylist?.name</WeekLy>
+                <Description>currentPlaylist?.description</Description>
+              </InfoText>
+            </Info>
+            <Songs>
+              <Icons>
+                <FaPlayCircle
+                  className="body__shuffle"
+                />
+                <FaPlayCircle
+                  fontSize="large"
+                  className="body__shuffle"
+                />
+                <FaPlayCircle fontSize="large" />
+                <FaPlayCircle />
+              </Icons>
+              <SongRow loading />
+            </Songs>
+          </>
+        )}
+
     </Wrapper>
   );
 }

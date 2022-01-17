@@ -34,19 +34,8 @@ export default function LoadingScreen() {
 
     if (accessToken) {
       console.log(accessToken, 'function');
-      // setLoading = ('false');
 
-      axios({
-        url: 'https://api.spotify.com/v1/me',
-        headers: {
-          Authorization: `Bearer ${accessToken}`,
-        },
-        success(response) {
-          const user = response;
-          console.log(user, 'user');
-          navigate('/Home');
-        },
-      });
+      navigate('/Home');
     }
   }, []);
 

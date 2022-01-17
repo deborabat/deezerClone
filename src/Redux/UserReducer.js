@@ -6,10 +6,10 @@ export const initialState = {
   current_playlist: null,
   tracks: null,
   track: null,
-  token: access_token,
+  token: null,
 };
 
-const reducer = (state, action) => {
+const UserReducer = (state, action) => {
   // Action -> type, [payload]
   switch (action.type) {
     case 'SET_USER':
@@ -58,4 +58,4 @@ const reducer = (state, action) => {
   }
 };
 
-export default reducer;
+export default UserReducer;

@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import PlaceholderLoading from 'react-placeholder-loading';
 import {
   Container, Info, Name, Text,
 } from './styles';
@@ -7,7 +8,8 @@ import {
 // import { useSoundLayerValue } from '../../services/soundLayer';
 
 // eslint-disable-next-line react/function-component-definition
-export default function SongRow() {
+export default function SongRow({ }) {
+  const [loading, setLoading] = useState('true');
   // const [{}, dispatch] = useDataLayerValue();
   // const [{ playing, repeat }, soundDispatch] = useSoundLayerValue();
 
@@ -42,16 +44,21 @@ export default function SongRow() {
   return (
     <Container>
       {/* <Album src={track.album.images[0].url} alt="" /> */}
-      <Info>
-        <Name>track.name</Name>
-        <Text>
-          artist.name
-          {' '}
-          -
-          {' '}
-          track.album.name
-        </Text>
-      </Info>
+      {loading ? (
+        <PlaceholderLoading shape="rect" width="50%" height="10%" />
+      )
+        : (
+          <Info>
+            <Name>track.name</Name>
+            <Text>
+              artist.name
+              {' '}
+              -
+              {' '}
+              track.album.name
+            </Text>
+          </Info>
+        ) }
     </Container>
   );
 }
