@@ -53,12 +53,9 @@ export default function Lists({ loading, user }) {
           <Info>
             <PlaceholderLoading shape="rect" width="50%" height="80%" />
             <InfoText>
-              <strong>PLAYLIST</strong>
-              <PlaceholderLoading shape="rect" width="50%" height="10%" />
-
+              <PlaceholderLoading shape="rect" width="50%" height="20%" />
             </InfoText>
             <Songs>
-              <PlaceholderLoading shape="rect" width="50%" height="10%" />
               <SongRow />
             </Songs>
           </Info>
@@ -67,24 +64,15 @@ export default function Lists({ loading, user }) {
             <Info>
               <Image src="https://cdn.shortpixel.ai/client/to_webp,q_lossy,ret_img,w_250/https://www.hypebot.com/wp-content/uploads/2020/07/discover-weekly-250x250.png" alt="" />
               <InfoText>
-                <strong>PLAYLIST</strong>
                 <WeekLy>currentPlaylist?.name</WeekLy>
                 <Description>currentPlaylist?.description</Description>
               </InfoText>
             </Info>
             <Songs>
               <Icons>
-                <FaPlayCircle
-                  className="body__shuffle"
-                />
-                <FaPlayCircle
-                  fontSize="large"
-                  className="body__shuffle"
-                />
-                <FaPlayCircle fontSize="large" />
-                <FaPlayCircle />
+                <FaPlayCircle fontSize="50px" />
               </Icons>
-              <SongRow loading />
+              <SongRow />
             </Songs>
           </>
         )}

@@ -29,9 +29,7 @@ export const WeekLy = styled.text`
   font-size: 48px;
   margin-bottom: 10px;
 `;
-export const Description = styled.text`
-  font-size: 14px;
-`;
+
 export const Image = styled.img`
   display: flex;
   align-items: flex-end;
@@ -39,18 +37,4 @@ export const Image = styled.img`
   width: 15vw;
   margin: 0 20px;
   box-shadow: 0 4px 60px rgba(0, 0, 0, 0.5);
-`;
-
-export const Icons = styled.section`
-  display: flex;
-  align-items: flex-end;
-  margin: 0 20px;
-`;
-
-export const Songs = styled.section`
-  margin: 10px ;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
 `;

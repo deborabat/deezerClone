@@ -12,16 +12,14 @@ import App from './App';
 import store from './Redux/store';
 
 ReactDOM.render(
-
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
+  <Provider store={store}>
+    <React.StrictMode>
+      <BrowserRouter>
         <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
+      </BrowserRouter>
+    </React.StrictMode>
+  </Provider>,
 
-  document.getElementById('root'),
-
+  document.getElementById('root')
 );
 // serviceWorker.unregister();

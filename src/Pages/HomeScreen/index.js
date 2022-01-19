@@ -1,56 +1,54 @@
 /* eslint-disable react/function-component-definition */
 import React, { useEffect, useState } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import SpotifyWebApi from 'spotify-web-api-js';
-
+import { getUser, getNewReleases } from '../../services/api/user';
 import Menu from '../../Components/Menu';
-import Lists from '../../Components/Lists';
+import NewRelleases from '../../Components/NewRelleases';
 import Footer from '../../Components/Footer';
-import {
-  Wrapper,
-  Body,
-  ContainerMenu,
-  ContainerList,
-} from './styles';
+import { Wrapper, Body, ContainerMenu, ContainerList } from './styles';
+import { Types } from '../../Redux/types';
 
-export default function HomeScreen(accessToken) {
+export default function HomeScreen() {
   const [loading, setLoading] = useState('true');
   const dispatch = useDispatch();
+  const reduxState = useSelector((state) => state);
 
-  localStorage.getItem(accessToken);
+  console.log(reduxState);
 
   const spotify = new SpotifyWebApi();
 
-  useEffect(() => {
-    if (accessToken) {
-      spotify.setAccessToken(accessToken);
-      spotify.getMe().then((user) => {
-        dispatch({
-          type: 'SET_USER',
-          user,
-        });
-      });
+  const getReleases = async () => {
+    if (localStorage.getItem('accessToken')) {
+      const releases = await getNewReleases();
 
-      spotify.getUserPlaylists().then((playlists) => {
-        dispatch({
-          type: 'SET_PLAYLISTS',
-          playlists,
-        });
-      });
+      console.log({ releases });
     }
+  };
+
+  const getUserData = async () => {
+    if (localStorage.getItem('accessToken')) {
+      const user = await getUser();
+      console.log({ user });
+    }
+  };
+
+  useEffect(() => {
+    getReleases();
+    getUserData();
   }, []);
 
   return (
     <Wrapper>
       <Body>
         <ContainerMenu>
-          <Menu loading />
+          <Menu />
         </ContainerMenu>
         <ContainerList>
-          <Lists loading />
+          <NewRelleases loading />
         </ContainerList>
       </Body>
-      <Footer loading />
+      <Footer />
     </Wrapper>
   );
 }

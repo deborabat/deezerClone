@@ -14,9 +14,10 @@ export default function LoadingScreen() {
   const spotify = new SpotifyWebApi();
   function getHashParams() {
     const hashParams = {};
-    let e; const r = /([^&;=]+)=?([^&;]*)/g;
+    let e;
+    const r = /([^&;=]+)=?([^&;]*)/g;
     const q = window.location.hash.substring(1);
-    while (e = r.exec(q)) {
+    while ((e = r.exec(q))) {
       hashParams[e[1]] = decodeURIComponent(e[2]);
     }
     return hashParams;
@@ -30,7 +31,7 @@ export default function LoadingScreen() {
 
     console.log(accessToken, 'token');
 
-    localStorage.setItem(accessToken, accessToken);
+    localStorage.setItem('accessToken', accessToken);
 
     if (accessToken) {
       console.log(accessToken, 'function');
@@ -41,8 +42,9 @@ export default function LoadingScreen() {
 
   return (
     <Container>
-      {loadinng
-        && <Spinner size={120} spinnerColor="#333" spinnerWidth={2} visible />}
+      {loadinng && (
+        <Spinner size={120} spinnerColor="#333" spinnerWidth={2} visible />
+      )}
     </Container>
   );
 }

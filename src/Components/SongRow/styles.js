@@ -6,16 +6,18 @@ export const Container = styled.section`
   display: flex;
   align-items: center;
   z-index: 100;
-  color: white;
+  flex-direction: column;
   :hover {
   cursor: pointer;
   background-color: black;
   opacity: 0.8;
+  flex-direction: column;
 }
 `;
 
 export const Info = styled.section`
   margin-left: 20px;
+  color: white;
 `;
 
 export const Name = styled.text`

@@ -8,7 +8,7 @@ import {
 // import { useSoundLayerValue } from '../../services/soundLayer';
 
 // eslint-disable-next-line react/function-component-definition
-export default function SongRow({ }) {
+export default function SongRow() {
   const [loading, setLoading] = useState('true');
   // const [{}, dispatch] = useDataLayerValue();
   // const [{ playing, repeat }, soundDispatch] = useSoundLayerValue();
@@ -44,17 +44,15 @@ export default function SongRow({ }) {
   return (
     <Container>
       {/* <Album src={track.album.images[0].url} alt="" /> */}
-      {loading ? (
-        <PlaceholderLoading shape="rect" width="50%" height="10%" />
+      {loading === 'true' ? (
+        <PlaceholderLoading shape="rect" width="90%" height="25%" />
       )
         : (
           <Info>
             <Name>track.name</Name>
             <Text>
               artist.name
-              {' '}
               -
-              {' '}
               track.album.name
             </Text>
           </Info>
