@@ -10,14 +10,14 @@ export const Container = styled.section`
 `;
 
 export const ContainerRight = styled.div`
-  margin-left:5vh ;
+  margin-left: 5vh;
   display: flex;
   flex-direction: row;
   width: 20%;
 `;
 export const ContainerLeft = styled.div`
-  margin-right:10vh ;
-  margin-left:1vh ;
+  margin-right: 10vh;
+  margin-left: 1vh;
   font-size: calc(8px + 2vmin);
   color: gray;
   background-color: #282828;
@@ -25,8 +25,8 @@ export const ContainerLeft = styled.div`
 `;
 
 export const Name = styled.text`
-  margin-right:10vh ;
-  margin-left:1vh ;
-  font-size: calc(8px + 2vmin);
+  margin-right: 1vh;
+  margin-left: 1vh;
+  font-size: calc(6px + 2vmin);
   color: gray;
 `;

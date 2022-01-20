@@ -31,7 +31,7 @@ export async function getNewReleases() {
   try {
     const response = await axios({
       method: 'get',
-      url: 'https://api.spotify.com/v1/browse/new-releases?country=Br&limit=10&offset=5',
+      url: 'https://api.spotify.com/v1/browse/new-releases?country=Br&limit=5&offset=5',
       mode: 'no-cors',
       headers: {
         Accept: 'application/json',
@@ -39,7 +39,7 @@ export async function getNewReleases() {
         Authorization: `Bearer ${token}`,
       },
     });
-    return response.data;
+    return response.data.albums;
   } catch (error) {
     return null;
   }

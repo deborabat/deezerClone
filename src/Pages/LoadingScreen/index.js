@@ -1,17 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Spinner from 'react-spinner-material';
-import SpotifyWebApi from 'spotify-web-api-js';
 import { Container } from './styles';
 
 const axios = require('axios');
 
 // eslint-disable-next-line react/function-component-definition
 export default function LoadingScreen() {
-  const [loadinng, setLoading] = useState('true');
+  const [loadinng, setLoading] = useState(true);
 
   const navigate = useNavigate();
-  const spotify = new SpotifyWebApi();
   function getHashParams() {
     const hashParams = {};
     let e;
@@ -28,8 +26,6 @@ export default function LoadingScreen() {
     console.log(params, 'get');
     const accessToken = params.access_token;
     const { state } = params;
-
-    console.log(accessToken, 'token');
 
     localStorage.setItem('accessToken', accessToken);
 
