@@ -16,7 +16,6 @@ export default function RoutesScreen(accessToken) {
       <Route exact path="/" element={<Loading />} />
       <Route exact path="/Home" element={<Home />} />
       <Route path="/fav" element={<Favoritos />} />
-
     </Routes>
   );
 }
