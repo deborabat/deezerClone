@@ -1,9 +1,5 @@
 const axios = require('axios');
 
-// where are you running your app (local react by default is http://localhost:3000/
-const clientId = '96aa74e34af84f399d9ebd04c7823845'; // clintId you can get at https://developer.spotify.com/dashboard
-const redirectUrl = `${window.location.origin}/`; // Your redirect uri
-
 // eslint-disable-next-line import/prefer-default-export
 export async function getUser() {
   const token = localStorage.getItem('accessToken');

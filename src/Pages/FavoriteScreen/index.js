@@ -3,14 +3,9 @@ import React from 'react';
 import Menu from '../../Components/Menu';
 import Lists from '../../Components/Lists';
 import Footer from '../../Components/Footer';
-import {
-  Wrapper,
-  Body,
-  ContainerMenu,
-  ContainerList,
-} from './styles';
+import { Wrapper, Body, ContainerMenu, ContainerList } from './styles';
 
-export default function HomeScreen() {
+export default function FavoriteScreen() {
   return (
     <Wrapper>
       <Body>

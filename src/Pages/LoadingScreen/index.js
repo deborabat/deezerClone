@@ -20,19 +20,16 @@ export default function LoadingScreen() {
     }
     return hashParams;
   }
+  const params = getHashParams();
+  const accessToken = params.access_token;
 
   useEffect(() => {
-    const params = getHashParams();
-    console.log(params, 'get');
-    const accessToken = params.access_token;
-    const { state } = params;
-
-    localStorage.setItem('accessToken', accessToken);
-
     if (accessToken) {
-      console.log(accessToken, 'function');
+      localStorage.setItem('accessToken', accessToken);
 
       navigate('/Home');
+    } else {
+      navigate('/auth');
     }
   }, []);
 
